@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 数据库连接配置 -->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/springboot1?useSSL=false&amp;serverTimezone=UTC"
+                        userId="root"
+                        password="2004"/>
+
+        <!-- 类型解析器 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 实体类生成的包名和路径 -->
+        <javaModelGenerator targetPackage="cn.edu.gench.javaee.fengjingxuan2220680.springbootmybatis.po" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- Mapper XML 文件生成的路径 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- Mapper 接口生成的包名和路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.edu.gench.javaee.fengjingxuan2220680.springbootmybatis.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 需要生成的表及主键配置 -->
+        <table tableName="users" domainObjectName="User" />
+        <!-- 你可以添加更多的表 -->
+    </context>
+</generatorConfiguration>
